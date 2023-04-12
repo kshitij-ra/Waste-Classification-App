@@ -76,10 +76,12 @@ class _WasteRecogniserState extends State<WasteRecogniser> {
           _buildPickPhotoButton(
             title: 'Take a photo',
             source: ImageSource.camera,
+            icon: Icons.camera_alt_outlined,
           ),
           _buildPickPhotoButton(
             title: 'Pick from gallery',
             source: ImageSource.gallery,
+            icon: Icons.photo_album_outlined,
           ),
           const Spacer(),
         ],
@@ -115,24 +117,42 @@ class _WasteRecogniserState extends State<WasteRecogniser> {
   Widget _buildPickPhotoButton({
     required ImageSource source,
     required String title,
+    required IconData icon,
   }) {
     return TextButton(
       onPressed: () => _onPickPhoto(source),
-      child: Container(
-        decoration: BoxDecoration(
-            color: kColorBrown,
-            borderRadius: BorderRadius.all(Radius.circular(10))),
-        width: 300,
-        height: 50,
-        //color: kColorBrown,
-        child: Center(
-            child: Text(title,
-                style: const TextStyle(
-                  fontFamily: kButtonFont,
-                  fontSize: 20.0,
-                  fontWeight: FontWeight.w600,
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 2.5),
+        child: Container(
+          decoration: BoxDecoration(
+              color: kColorBrown,
+              borderRadius: BorderRadius.all(Radius.circular(10))),
+          height: 50,
+          //color: kColorBrown,
+          child: Center(
+              child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Icon(
+                  icon,
                   color: kColorLightYellow,
-                ))),
+                ),
+                SizedBox(
+                  width: 18,
+                ),
+                Text(title,
+                    style: const TextStyle(
+                      fontFamily: kButtonFont,
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.w600,
+                      color: kColorLightYellow,
+                    )),
+              ],
+            ),
+          )),
+        ),
       ),
     );
   }
@@ -165,7 +185,7 @@ class _WasteRecogniserState extends State<WasteRecogniser> {
 
     final resultCategory = _classifier.predict(imageInput);
 
-    final result = resultCategory.score >= 0.8
+    final result = resultCategory.score >= 0.65
         ? _ResultStatus.found
         : _ResultStatus.notFound;
     final wasteLabel = resultCategory.label;

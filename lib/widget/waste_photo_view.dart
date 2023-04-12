@@ -9,24 +9,46 @@ class WastePhotoView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 250,
-      decoration: BoxDecoration(
-          color: Colors.blueGrey,
-          borderRadius: BorderRadius.all(Radius.circular(20))),
-      height: 250,
-      //color: Colors.blueGrey,
-      child: (file == null)
-          ? _buildEmptyView()
-          : Image.file(file!, fit: BoxFit.cover),
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 25),
+      child: Container(
+          //width: 300,
+          decoration: BoxDecoration(
+              color: Colors.blueGrey,
+              borderRadius: BorderRadius.all(Radius.circular(20))),
+          height: 300,
+          //color: Colors.blueGrey,
+          child: (file == null)
+              ? _buildEmptyView()
+              : ClipRRect(
+                  borderRadius: BorderRadius.circular(20), // Image border
+                  child: Image.file(file!, fit: BoxFit.cover),
+                )),
     );
   }
 
   Widget _buildEmptyView() {
-    return const Center(
-        child: Text(
-      'Please pick a photo',
-      style: kAnalyzingTextStyle,
-    ));
+    return Padding(
+      padding: const EdgeInsets.all(20),
+      child: Center(
+          child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Icon(
+            Icons.photo,
+            size: 40,
+            color: kColorEggshell,
+          ),
+          SizedBox(
+            height: 10,
+          ),
+          Text(
+            'Please select a photo',
+            style: kAnalyzingTextStyle,
+            textAlign: TextAlign.center,
+          ),
+        ],
+      )),
+    );
   }
 }
