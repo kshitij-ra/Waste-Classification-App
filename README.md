@@ -3,7 +3,7 @@
 This is an Android app that uses machine learning to classify images of waste into six categories: cardboard, glass, metal, paper, plastic, and trash. It was built using Flutter, a popular framework for building cross-platform mobile apps.
 
 - The dataset used can be downloaded from [here](https://www.kaggle.com/datasets/asdasdasasdas/garbage-classification).
-- Learn more about the ML model trained using by accessing the kaggle notebook [here](https://www.kaggle.com/code/kshitijradotra/waste-classification-inceptionv3).
+- Learn more about the ML model trained by accessing the kaggle notebook [here](https://www.kaggle.com/code/kshitijradotra/waste-classification-inceptionv3).
 
 # Features
 
