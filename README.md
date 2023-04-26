@@ -5,20 +5,20 @@ This is an Android app that uses machine learning to classify images of waste in
 - The dataset used can be downloaded from [here](https://www.kaggle.com/datasets/asdasdasasdas/garbage-classification).
 - Learn more about the ML model trained by accessing the kaggle notebook [here](https://www.kaggle.com/code/kshitijradotra/waste-classification-inceptionv3).
 
-# Features
+## Features
 
     - Take a photo or select an image from your gallery
     - Classify the image using a machine learning model trained on waste images
     - See the classification result (cardboard, glass, metal, paper, plastic, or trash)
     - [TODO] Get more information about the waste category and how to properly dispose of it.
 
-# Technologies used
+## Technologies used
 
     - Flutter 2.0+
     - TensorFlow Lite for machine learning
     - InceptionV2 model
 
-# Installation
+## Installation
 
 To install the app, follow these steps:
 
@@ -27,10 +27,10 @@ To install the app, follow these steps:
     - Connect your Android device or start an emulator
     - Run the app
     
-# Contributions
+## Contributions
 
 Contributions to this project are welcome! If you would like to contribute, please fork the repository and submit a pull request with your changes.
 
-# License
+## License
 
 This project is licensed under the MIT License - see the LICENSE.md file for details.
